@@ -1,0 +1,52 @@
+
+<!doctype html>
+<head>
+        <!-- include Bootstrap CSS and Javascript -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+</script>
+</head>
+
+
+<title>Spectral Analysis of Vegetation Land</title>
+
+
+<h3 align="center" style="margin-top: 30px; font-weight: bold; font-size: 50px">Spectral Analysis(PCA and K-Means)...</h3>
+<h3 align="center" style="margin-top: 30px; font-weight: bold; font-size: 30px; padding: 60px">Upload a file(.tif) and start processing...</h3>
+
+<form method="post" action="/" enctype="multipart/form-data" align="center">
+    <dl>
+                <p>
+                    <input type="file" name="file" autocomplete="off" required style="width:400px; border: 1px solid; display: inline-block;
+                                        padding: 6px 12px; cursor: pointer;">
+                </p>
+    </dl>
+    <p>
+
+                <input type="submit" value="Upload Orthophoto">
+        </p>
+</form>
+
+<p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+                <ul align="center" class=flashes>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+          {% endif %}
+        {% endwith %}
+</p>
+{% if filename %}
+         <h5 align="center" style="font-weight: bold; font-size: 15px"> PCA and K-means applied</h5>
+         <h5 align="center" style="font-weight: bold; font-size: 15px">Spectral Analysis Successful</h5>
+         <p align="center">
+            <a href="{{ url_for('.download_file') }}">Download Assets</a>
+         </p>
+{% endif %}
+
