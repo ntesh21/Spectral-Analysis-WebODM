@@ -10,13 +10,13 @@
 #### The GDAL library  is used to read the orthophoto(tif). Once the orthopoto is read by GDAL. It is converted into an array with the help of gdal_array function to read the image as an array. One we have the array of orthophoto, PCA is implemented on the image array. To implement PCA spectral library is used. principle_components(image_array) is implemented to determine the PCA components and compress the image. 
 
 #### Original Orthophoto(tif)
-![alternativetext](outputs/odm-doc2.jpeg)
+![alternativetext](outputs/odm-doc2.jpg)
 
 #### Compressed Image(After PCA)
 ![alternativetext](outputs/pca-compressed.jpeg)
 
 
-#### The compressed image as well as details of pca can be downloaded after the processing.
+#### *The compressed image as well as details of pca can be downloaded after the processing.*
 
 
 ### K-Means
@@ -24,3 +24,44 @@
 
 #### Raster Clustered Image with k=10
 ![alternativetext](outputs/raster_clustered.jpg)
+
+
+#### *The clustered image as well as details of pca can be downloaded after the processing.*
+
+
+### Flask Application
+#### Flask is used to create the web application for using the implemented algoriths in the picture. Web page is created where Normal image or orthophoto can be uploaded and processed with the PCA and K-means algorithms and the results can be downloaded.
+
+
+
+### The codebase consists of following files:
+
+#### *k_means.py*: K-Means Implementation
+#### *pca.py*: PCA Implementation
+#### *main.py*: Flask Web Application of using implemented algorithms
+#### *index.html*: Web Page for Web Appication
+
+
+### Web ODM
+#### The web application is hosted in the server and its *iframe* is integrated in Web ODM interface.
+
+### Following updates are made in WebODM framework:
+#### New view named (spectral_analysis) is created where the template containing iframe for flask web app is rendered. Web ODM file/directory: *app/views/app.py*
+#### URL for the rendered webpage is added on *app/urls.py*
+#### Side Navigation Menu *Spectral Analysis* is added on the base template *app/template/app/logged_in_based.html*.
+#### New web page is created on *app/template/app/spectral-analysis.html* which is rendered by above view and is linked to the Side Navigatin Menu mentioned above where iframe of the flask web app is implemented.
+
+
+### Implementation
+
+#### The above algorithms are implemented in the WebODM interface.
+
+![alternativetext](outputs/odm-doc4.jpg)
+
+![alternativetext](outputs/odm-doc5.jpg) 
+
+![alternativetext](outputs/odm-doc6.jpg)
+
+![alternativetext](outputs/odm-doc7.jpg)
+
+![alternativetext](outputs/odm-doc8.jpg)
